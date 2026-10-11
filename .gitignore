@@ -1,0 +1,14 @@
+# Datos personales (no publicar)
+USER.private.md
+
+# Notas y memoria del agente
+memory/
+
+# Backups y temporales
+*.bak
+*.pre-*.bak
+.env
+
+# Config local
+config/
+media/

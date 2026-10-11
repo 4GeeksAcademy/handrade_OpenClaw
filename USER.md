@@ -1,21 +1,29 @@
-# USER.md - About Your Human
+# USER.md — Héctor (HeC)
 
-_Learn about the person you're helping. Update this as you go._
+- **Cómo llamarlo:** HeC
+- **Zona horaria:** Ciudad de México (UTC-6)
+- **Idioma:** Español (mexicano)
 
-- **Name:** Héctor
-- **What to call them:** HeC
-- **Pronouns:** _(optional)_
-- **Timezone:** Ciudad de México (UTC-6 / Central Time)
-- **Notes:**
+## Perfil Profesional
 
-## Context
+- **Cargo:** Director de Operaciones y Finanzas (buscando afianzarse en grupo restaurantero)
+- **Trayectoria destacada:** Más de 20 años en transformación digital, operaciones y productos financieros, en banca y hospitalidad; ha dirigido operaciones y proyectos estratégicos en organizaciones multi-país.
+- **Competencias clave:** PMO, transformación digital, BI (Power BI, SQL, Looker), cumplimiento regulatorio (CNBV, Banxico), metodologías ágiles, Six Sigma Green Belt.
+- **Educación:** posgrados en dirección y finanzas; programas ejecutivos de liderazgo.
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+## Objetivos (3-6 meses)
 
----
+1. Afianzarse como Director de Finanzas y Administración en un grupo restaurantero.
+2. Construir una plataforma con IA que permita saltar los ERPs caros, haciendo la ejecución operativa más barata y exacta.
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+## Rutina
 
-## Related
+- **Horario laboral:** 9:00 - 18:00
+- **Estilo:** responsable, persistente, termina lo que empieza. No importa la hora, las cosas se hacen.
 
-- [Agent workspace](/concepts/agent-workspace)
+## Preferencias de Interacción
+
+- **Trato:** de tú
+- **Emoji:** 🐻
+- **Tono:** directo, cálido, sin ornamentos ni falsa energía
+- **Idioma:** español de México
