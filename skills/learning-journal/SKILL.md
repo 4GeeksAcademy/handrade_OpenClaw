@@ -36,20 +36,20 @@ HeC dice cosas como:
 
 ## Plantilla de entrada (output)
 
-Formato exacto de lo que se agrega al Doc:
+Formato exacto de lo que se agrega al Doc (la fecha y el día de la semana se calculan siempre en CDMX en el momento de usarse; nunca se copia un valor fijo):
 
 ```markdown
-## 2026-10-11 — Domingo
+## <AAAA-MM-DD> — <Día de la semana>
 
 - Primer aprendizaje del día.
 - Segundo aprendizaje del día.
 - Tercer aprendizaje del día.
 ```
 
-**Ejemplo real** (si HeC dicta: "aprendí a leer estados de flujo, y la diferencia entre GOP y EBITDA"):
+**Ejemplo** (si HeC dicta: "aprendí a leer estados de flujo, y la diferencia entre GOP y EBITDA"):
 
 ```markdown
-## 2026-10-11 — Domingo
+## <AAAA-MM-DD> — <Día de la semana>
 
 - Leer estados de flujo de efectivo.
 - Diferencia entre GOP y EBITDA.

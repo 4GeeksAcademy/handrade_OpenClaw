@@ -47,7 +47,7 @@ HeC describe un evento en lenguaje natural, por ejemplo:
 ¿Lo creo?
 ```
 
-**Ejemplo real** (si HeC dice: "sesión de estudio el jueves por la tarde, dos horas, con recordatorio", y el jueves más próximo es el 15 de octubre):
+**Ejemplo** (si HeC dice: "sesión de estudio el jueves por la tarde, dos horas, con recordatorio", y el jueves más próximo es el 15 de octubre):
 
 ```
 ¿Te confirmo este evento?
