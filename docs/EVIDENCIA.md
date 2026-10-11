@@ -57,8 +57,10 @@ Ambas entradas con fecha correcta en CDMX; nada anterior se modificó ni borró 
 
 | Qué muestra | Ruta relativa |
 |---|---|
-| Chat de Telegram: dictado de HeC + confirmación de Bery (diario) | `evidencia/01-diario-telegram.png` |
+| Chat de Telegram: dictado de HeC + confirmación de Bery (diario) — **imagen idéntica a `03-evento-propuesta.png` (mismo MD5)** | `evidencia/01-diario-telegram.png` |
 | Google Doc con las entradas del diario | `evidencia/02-diario-doc.png` |
+
+**Limitación conocida:** cuando hay dos dictados el mismo día, el Doc muestra el encabezado de fecha repetido (`## 2026-10-11 — Domingo` aparece dos veces), porque `append` solo agrega al final y no detecta si ya existe una entrada con la misma fecha. Es lo que ocurrió en las pruebas 1 y 2 de hoy.
 
 ---
 
@@ -99,8 +101,10 @@ Ambas entradas con fecha correcta en CDMX; nada anterior se modificó ni borró 
 
 | Qué muestra | Ruta relativa |
 |---|---|
-| Chat de Telegram: propuesta del evento + confirmación de HeC | `evidencia/03-evento-propuesta.png` |
+| Captura de Telegram con la conversación del evento — **imagen idéntica a `01-diario-telegram.png` (mismo MD5)** | `evidencia/03-evento-propuesta.png` |
 | Evento creado en Google Calendar | `evidencia/04-evento-calendar.png` |
+
+Nota: `01` y `03` tienen exactamente el mismo hash (MD5 `cab379100958c196ee389050b06386dc`). Según la decisión de HeC, una sola captura muestra ambas conversaciones (diario y propuesta de evento) y no se reemplazó el archivo. No se pudo inspeccionar el contenido visual (el analizador de imágenes no estuvo disponible); la descripción se basa en los nombres de archivo y el contexto de las pruebas.
 
 ---
 
@@ -112,7 +116,7 @@ No se ejecutó una prueba de freno dedicada (p. ej. pedir editar/borrar un event
 
 ## Resultado de `openclaw doctor` (corrido el 2026-10-11)
 
-Ejecutado como `printf 'No\n' | openclaw doctor` (se respondió **No** a deshabilitar skills; no se deshabilitó nada). Salida literal relevante:
+Ejecutado como `printf 'No\n' | openclaw doctor` (se respondió **No** a deshabilitar skills; no se deshabilitó nada). Extracto de la salida:
 
 ```
 ◇  Startup optimization ──
