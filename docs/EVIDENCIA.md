@@ -1,61 +1,142 @@
-# EVIDENCIA.md — Pruebas de Skills (plantilla)
+# EVIDENCIA.md — Pruebas de Skills (resultados reales)
 
-> ⚠️ **Ninguna prueba se ha ejecutado todavía.** Este archivo es una plantilla.
-> Las pruebas las realizará HeC con inputs reales. Cada entrada se documenta aquí
-> con capturas cuando se haga.
+> Fecha de las pruebas: **2026-10-11**. Entradas reales de HeC por Telegram; resultados verificados por Bery con las respuestas reales de las APIs de Google Docs y Google Calendar.
+> Las capturas se alojan en `docs/evidencia/` (rutas relativas). **La carpeta está creada y vacía**: HeC agregará las imágenes; ninguna captura se ha subido todavía.
 
 ---
 
 ## Skill 1: learning-journal
 
-### Input de prueba
+### Prueba 1 — primera entrada (el Doc NO existía)
 
-_(lo dicta HeC por Telegram el día de la prueba; el ejemplo de SKILL.md es solo ilustrativo)_
+**Input (dictado real por Telegram, 10:14 UTC):**
 
-> _(pegar aquí el dictado real)_
+> "Hoy aprendí a reactivarte y darte los primeros auxilios porque te desmayaste y no respondías."
 
-### Resultado esperado
+**Output esperado (según SKILLS_DESIGN.md):** entrada con fecha de hoy en CDMX agregada al final del Doc "Diario de aprendizaje - HeC"; si el Doc no existe, crearlo y avisarlo.
 
-- Se agrega una entrada con la fecha del día en zona CDMX al final del Google Doc "Diario de aprendizaje - HeC".
-- Si el Doc no existe, se crea y Bery lo avisa.
-- Confirmación en Telegram con enlace al Doc.
+**Output obtenido:**
+- El Doc **no existía** → se creó con `google_docs_create_document_from_text` (acción `newtxtdocument`) y se avisó explícitamente ("creé el doc porque no existía").
+- Contenido real del Doc (leído vía API tras la prueba):
 
-### Evidencia (capturas)
+  ```
+  ## 2026-10-11 — Domingo
 
-| Qué capturar | Imagen |
+  - Reactivar a Bery y darle primeros auxilios cuando se desmayó y no respondía.
+  ```
+
+- **Los `##` del encabezado y los `-` de las viñetas salen literales** en el Doc (texto plano, no markdown renderizado) ✅
+- **Fecha correcta:** 2026-10-11 es domingo y es la fecha de hoy en CDMX (UTC-6) ✅
+
+**Cómo se refleja la configuración:** SOUL.md (actúo primero porque añadir al final es reversible; confirmación corta "Listo, agregado al diario 📝"); USER.md (zona CDMX, español, de tú); AGENTS.md regla 8 con su excepción (el dictado de HeC es la aprobación para AÑADIR; no se tocó nada existente); TOOLS.md (solo Google Docs vía Zapier, cuenta principal, sin repetir correos).
+
+### Prueba 2 — segunda entrada (el Doc ya existía)
+
+**Input (10:20 UTC):**
+
+> "Anota en mi diario: hoy aprendí que un proyecto de agente se evalúa por el diseño de sus skills, no solo por que funcionen, y cómo conectar Zapier a OpenClaw desde un VPS sin navegador."
+
+**Output esperado:** entrada fechada agregada al final, sin modificar lo anterior.
+
+**Output obtenido:** el Doc **ya existía** → se usó `google_docs_append_text_to_document` (acción `append`, `newline: true`). Contenido real final del Doc (verificado vía API):
+
+```
+## 2026-10-11 — Domingo
+
+- Reactivar a Bery y darle primeros auxilios cuando se desmayó y no respondía.
+
+## 2026-10-11 — Domingo
+
+- Un proyecto de agente se evalúa por el diseño de sus skills, no solo por que funcionen.
+- Cómo conectar Zapier a OpenClaw desde un VPS sin navegador.
+```
+
+Ambas entradas con fecha correcta en CDMX; nada anterior se modificó ni borró ✅
+
+**Capturas (pendientes, rutas relativas previstas):**
+
+| Qué capturar | Ruta relativa |
 |---|---|
-| Final del Doc con la entrada nueva (fecha CDMX correcta) | _(pegar captura)_ |
-| Mensaje de confirmación de Bery en Telegram | _(pegar captura)_ |
-
-### Resultado real
-
-_(lo llena Bery tras la prueba: ✅/❌, enlace al Doc, incidencias)_
+| Final del Doc con la entrada nueva | `evidencia/prueba1-doc-final.png` |
+| Mensajes de confirmación de Bery en Telegram | `evidencia/confirmaciones-telegram.png` |
 
 ---
 
 ## Skill 2: smart-calendar-event
 
-### Input de prueba
+### Prueba — propuesta + creación solo tras confirmación
 
-_(lo describe HeC por Telegram el día de la prueba; el ejemplo de SKILL.md es solo ilustrativo)_
+**Input (10:15 UTC):**
 
-> _(pegar aquí la descripción real)_
+> "Sesión de estudio el jueves por la tarde, dos horas, con recordatorio"
 
-### Resultado esperado
+**Output esperado (según SKILLS_DESIGN.md):** propuesta con título, fecha/hora en CDMX dentro de 9:00-18:00 y recordatorio; **nada se crea antes del "sí"** (regla 9).
 
-- Bery propone el evento (título, fecha, hora, duración, recordatorio) en CDMX, dentro de 9:00-18:00 (o lo que HeC pida).
-- **Nada se crea antes de la confirmación de HeC.**
-- Tras el "sí", el evento aparece en el calendario principal con los datos correctos.
-- Confirmación en Telegram con el detalle del evento.
+**Output obtenido:**
+1. **Disponibilidad:** se consultó el calendario principal para el jueves próximo (15/10) con `google_calendar_find_events` → sin conflictos.
+2. **Propuesta enviada (antes de crear nada):**
 
-### Evidencia (capturas)
+   ```
+   ¿Te confirmo este evento?
+   📅 Sesión de estudio
+   🗓️ Jueves 15 de octubre, 16:00–18:00 (CDMX)
+   ⏰ Recordatorio 30 min antes
+   ¿Lo creo?
+   ```
 
-| Qué capturar | Imagen |
+3. **No se creó nada antes del "sí"** — lo confirma la secuencia real: propuesta → espera → HeC respondió "Crealo" → recién ahí se ejecutó `google_calendar_create_detailed_event` ✅
+4. **Evento creado (verificado en la respuesta real de la API):**
+   - Título: **Sesión de estudio**
+   - Inicio: **2026-10-15T16:00:00-06:00** (America/Mexico_City)
+   - Fin: **2026-10-15T18:00:00-06:00**
+   - Duración: **2 horas**
+   - Recordatorio: **popup 30 min antes**
+   - Estado: `confirmed`, calendario principal ✅
+
+**Cómo se refleja la configuración:** USER.md (zona CDMX y jornada 9:00-18:00 → "tarde" se resolvió como 16:00-18:00); AGENTS.md regla 9 (parar y preguntar antes de crear; se creó solo tras confirmación); SOUL.md (propuesta clara y una sola pregunta: "¿Lo creo?"); TOOLS.md (calendario principal de la cuenta conectada); tono de tú con 🐻 en el resumen de confirmación.
+
+**Capturas (pendientes, rutas relativas previstas):**
+
+| Qué capturar | Ruta relativa |
 |---|---|
-| Propuesta de Bery en Telegram (antes del "sí") | _(pegar captura)_ |
-| Evento creado en Google Calendar (fecha/hora correctas) | _(pegar captura)_ |
-| Mensaje de confirmación de Bery | _(pegar captura)_ |
+| Propuesta en Telegram (antes del "sí") | `evidencia/prueba2-propuesta.png` |
+| Evento creado en Google Calendar | `evidencia/prueba2-evento-calendar.png` |
 
-### Resultado real
+---
 
-_(lo llena Bery tras la prueba: ✅/❌, detalle del evento, incidencias)_
+## Prueba de freno (opcional)
+
+No se ejecutó una prueba de freno dedicada (p. ej. pedir editar/borrar un evento o documento existente). Como evidencia de que el freno opera, en la prueba 2 no se creó el evento hasta la confirmación explícita de HeC (regla 9). Queda disponible si HeC quiere probarla.
+
+---
+
+## Resultado de `openclaw doctor` (corrido el 2026-10-11)
+
+Ejecutado como `printf 'No\n' | openclaw doctor` (se respondió **No** a deshabilitar skills; no se deshabilitó nada). Salida literal relevante:
+
+```
+◇  Startup optimization ──
+  - NODE_COMPILE_CACHE is not set; repeated CLI runs can be slower on
+    small hosts (Raspberry Pi/VM).
+  - OPENCLAW_NO_RESPAWN is not set to 1; ...
+◇  Session locks ──
+  - Found 1 session lock file.
+  - ~/.openclaw/agents/main/sessions/...jsonl.lock pid=... (alive) stale=no
+◇  Security ──
+  - WARNING: openclaw.json contains plaintext secret-bearing config fields.
+    Paths: gateway.auth.token, channels.telegram.botToken
+  - Run: openclaw security audit --deep
+◇  Skills status ──
+  Eligible: 19 | Missing requirements: 30 | Incompatible (platform, auto-skipped): 6 | Blocked by allowlist: 0
+◇  Plugins ──
+  Loaded: 50 | Imported: 0 | Disabled: 17 | Errors: 0
+◇  Memory search ──
+  Memory search is explicitly disabled (enabled: false).
+Run "openclaw doctor --fix" to apply changes.
+└  Doctor complete.   (exit 0)
+```
+
+Notas:
+- **Sin errores críticos**; el doctor terminó con `exit 0`.
+- Advertencias conocidas y no bloqueantes: secrets en texto plano en `openclaw.json` (sugiere migrar a SecretRefs) y sugerencias de optimización de arranque.
+- Las skills propias se verificaron por separado con `openclaw skills info` (ambas `✓ Ready`, `Visible to model: yes`, `Available as command: yes`).
