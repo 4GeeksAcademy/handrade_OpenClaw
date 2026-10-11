@@ -19,7 +19,7 @@ El criterio fue simple: **máximo valor con cero configuración nueva**. Ambas s
 
 Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agrega como una entrada fechada al Google Doc "Diario de aprendizaje - HeC", creándolo si no existe.
 
-## 2. ¿Qué input necesita?
+## 2. ¿Qué entrada necesita?
 
 **Formato:** un mensaje de Telegram en lenguaje natural, normalmente con viñetas o puntos sueltos. No requiere estructura rígida.
 
@@ -29,11 +29,11 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 **Qué sé ya por los archivos de configuración:**
 - IDENTITY.md: soy Bery, asistente con criterio, sin falsa energía.
 - SOUL.md: actúo primero cuando es seguro y reversible; formato Telegram en español, párrafos cortos.
-- AGENTS.md: regla 8 — no edito Google Docs sin confirmación (el dictado de HeC es la instrucción explícita); regla 12 — no configuro nada nuevo; regla 14 — una pregunta a la vez.
+- AGENTS.md: regla 8 — no borro, muevo, renombro ni edito archivos o Google Docs sin confirmación. **Añadir una entrada al final** no toca nada existente y el dictado de HeC es la instrucción explícita, así que cuento con su autorización para actuar; regla 12 — no configuro nada nuevo; regla 14 — una pregunta a la vez.
 - USER.md: fecha de hoy se interpreta en CDMX (UTC-6); idioma español; el diario es "Diario de aprendizaje - HeC".
 - TOOLS.md: el diario se crea/edita con Google Docs vía Zapier, cuenta Google principal conectada; no hay carpeta de Drive por defecto (Drive no está habilitado), el Doc se crea directamente.
 
-## 3. ¿Cómo es un buen output?
+## 3. ¿Cómo es un buen resultado?
 
 **Formato:** una entrada con encabezado de fecha en español (ej. `## 2026-10-11 — Domingo`) seguida de la lista de puntos, agregada al final del Doc.
 
@@ -55,11 +55,11 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 4. Se confirma a HeC en Telegram con un mensaje corto: "Agregado al diario 📝" (y "Creé el doc" si fue nuevo).
 5. No se modificó ni borró nada más del documento.
 
-## 4. Por qué esta tarea, este input y este formato
+## 4. Por qué esta tarea, esta entrada y este formato
 
 - **Por qué esta tarea:** HeC está en modo aprendizaje continuo (objetivo de afianzarse como director, construcción de plataforma IA). Un diario de aprendizaje refuerza su hábito y me da contexto acumulado para ayudarle mejor. Es de las pocas tareas con valor diario real y bajo riesgo.
-- **Por qué este input:** el dictado libre por Telegram es el canal natural de HeC — lo usa todo el día y no requiere abrir otra app. Forzar una plantilla rígida mataría el hábito.
-- **Por qué este formato de output:** encabezado de fecha + viñetas es legible, consistente y permite crecer el doc sin estructura frágil.
+- **Por qué esta entrada:** el dictado libre por Telegram es el canal natural de HeC — lo usa todo el día y no requiere abrir otra app. Forzar una plantilla rígida mataría el hábito.
+- **Por qué este formato de resultado:** encabezado de fecha + viñetas es legible, consistente y permite crecer el doc sin estructura frágil.
 - **Alternativas descartadas:** (a) crear un doc nuevo por día → fragmenta el diario y llena Drive (que ni siquiera está habilitado); (b) una hoja de cálculo con columnas → más fría y difícil de leer en el celular; (c) solo guardar en memoria del agente → no es durable ni consultable por HeC.
 
 ## 5. Cómo se nota mi configuración frente a un agente genérico
@@ -67,7 +67,7 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 - El diario tiene un nombre y destino específicos definidos por HeC ("Diario de aprendizaje - HeC"), no un genérico "Notes".
 - La fecha se calcula en **CDMX (UTC-6)**, no en la zona del servidor.
 - La entrada y la confirmación van en **español mexicano, de tú, con 🐻**, tono corto (SOUL.md).
-- La regla de AGENTS.md (confirmar antes de tocar documentos, una pregunta a la vez) está integrada en el flujo: el dictado es la autorización, y si algo falta, hago **una** pregunta.
+- La regla de AGENTS.md se aplica con un matiz importante: **añadir** una entrada al diario es seguro, reversible y de bajo riesgo (no modifica nada existente), y el dictado de HeC es la instrucción explícita — por eso actúo primero (SOUL.md). En cambio, **editar o borrar entradas anteriores, o compartir el Doc, sí requiere confirmación** (regla 8). Si falta algo, hago **una** pregunta (regla 14).
 
 ## 6. Servicios usados
 
@@ -82,12 +82,12 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 - **HeC dicta algo ambiguo o incompleto:** pido **una** aclaración puntual (regla 14), no adivino (regla 15).
 - **HeC dicta datos sensibles:** se registran en el diario (es su doc privado), pero **nunca** se copian a archivos del repo, commits ni mensajes a terceros (regla 5).
 - **Falla la conexión con Zapier:** lo reporto tal cual (regla 16), no finjo que se guardó; propongo reintentar.
-- **Cuándo parar y preguntar:** si HeC pide editar/borrar entradas anteriores (regla 8: no edito/borro sin confirmación) o si pide compartir el doc con alguien (regla 2 y 8).
+- **Cuándo parar y preguntar:** si HeC pide editar o borrar entradas anteriores (regla 8: no edito/borro sin confirmación) o compartir el doc con alguien (regla 2: no comparto información personal; regla 8). Añadir una entrada nueva al final no requiere confirmación adicional: es reversible y el dictado es la instrucción explícita.
 
 ## 8. Plan de prueba
 
-- **Input real:** `"Hoy aprendí: 1) cómo funciona la migración de PMS sin caer en ocupación, 2) que el CAPEX con 3 criterios acelera las decisiones, 3) la diferencia entre EBITDA y GOP."`
-- **Resultado esperado:** entrada `## 2026-10-11 — Domingo` con las 3 viñetas agregada al final del Doc "Diario de aprendizaje - HeC" (creándolo si falta), y confirmación en Telegram.
+- **Entrada real:** lo dicta HeC el día de la prueba (el ejemplo de la sección 2 es solo ilustrativo).
+- **Resultado esperado:** entrada con la fecha del día en CDMX y las viñetas dictadas, agregada al final del Doc "Diario de aprendizaje - HeC" (creándolo si falta), y confirmación en Telegram.
 - **Evidencia a capturar:** captura del final del Doc mostrando la entrada nueva con fecha correcta CDMX + el mensaje de confirmación de Bery.
 
 ---
@@ -98,7 +98,7 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 
 Convierte la descripción en lenguaje natural de un evento en una propuesta concreta de fecha y hora en zona CDMX (respetando el horario laboral 9:00-18:00) y, **solo tras la confirmación de HeC**, la crea en su calendario principal con Google Calendar vía Zapier.
 
-## 2. ¿Qué input necesita?
+## 2. ¿Qué entrada necesita?
 
 **Formato:** un mensaje de Telegram describiendo el evento en lenguaje natural: qué, cuándo (relativo o absoluto), duración y extras como recordatorio.
 
@@ -111,7 +111,7 @@ Convierte la descripción en lenguaje natural de un evento en una propuesta conc
 - AGENTS.md: regla 9 — **no creo eventos sin aprobación explícita**; regla 14 — una pregunta a la vez si falta información.
 - SOUL.md: propongo lo más razonable ante incertidumbre, sin inventar; si es ambiguo, pregunto.
 
-## 3. ¿Cómo es un buen output?
+## 3. ¿Cómo es un buen resultado?
 
 **Formato de propuesta (antes de crear):** evento con título, fecha, hora de inicio y fin, y recordatorio, en español y claro para confirmar de un vistazo.
 
@@ -130,11 +130,11 @@ Convierte la descripción en lenguaje natural de un evento en una propuesta conc
 3. Tras confirmar, el evento aparece en el calendario con título, horario y recordatorio correctos.
 4. Se confirma con el detalle del evento creado (fecha, hora, recordatorio) y su enlace si está disponible.
 
-## 4. Por qué esta tarea, este input y este formato
+## 4. Por qué esta tarea, esta entrada y este formato
 
 - **Por qué esta tarea:** HeC vive entre reuniones y sesiones propias; escribir "jueves por la tarde, 2h" es más rápido que abrir Calendar y llenar campos. Es exactamente el tipo de fricción que un asistente personal debe quitar.
-- **Por qué este input:** lenguaje natural es lo que HeC ya usa en Telegram; cero aprendizaje de formato.
-- **Por qué este formato de output:** "proponer primero, crear después" es lo único compatible con AGENTS.md (regla 9) y evita eventos basura; el formato del mensaje de propuesta está pensado para leerse en una pantalla de celular.
+- **Por qué esta entrada:** lenguaje natural es lo que HeC ya usa en Telegram; cero aprendizaje de formato.
+- **Por qué este formato de resultado:** "proponer primero, crear después" es lo único compatible con AGENTS.md (regla 9) y evita eventos basura; el formato del mensaje de propuesta está pensado para leerse en una pantalla de celular.
 - **Alternativas descartadas:** (a) crear el evento directo sin confirmar → viola AGENTS.md regla 9; (b) pedir un formulario completo de datos → mata la ventaja del lenguaje natural; (c) interpretar "tarde" como 12:00 o 19:00 a criterio del modelo → inventar (regla 15); la propuesta explícita resuelve la ambigüedad.
 
 ## 5. Cómo se nota mi configuración frente a un agente genérico
@@ -142,7 +142,7 @@ Convierte la descripción en lenguaje natural de un evento en una propuesta conc
 - Resuelve fechas en **CDMX** — no asume la zona del servidor — y **respeta la jornada 9:00-18:00** de USER.md (un agente genérico propondría 19:00 o usaría UTC).
 - Pide confirmación porque AGENTS.md lo exige; un agente genérico crearía el evento sin avisar.
 - Responde en español mexicano, de tú, con 🐻 y formato Telegram (SOUL.md).
-- Usa el calendario principal de la cuenta que ya está conectada (TOOLS.md), sin pedir configuration de nada.
+- Usa el calendario principal de la cuenta que ya está conectada (TOOLS.md), sin pedir configuración de nada.
 
 ## 6. Servicios usados
 
@@ -162,8 +162,8 @@ Convierte la descripción en lenguaje natural de un evento en una propuesta conc
 
 ## 8. Plan de prueba
 
-- **Input real:** `"Sesión de estudio el jueves por la tarde, dos horas, con recordatorio."`
-- **Resultado esperado:** Bery propone "Jueves 15 de octubre, 16:00–18:00 (CDMX), recordatorio 30 min antes" y espera confirmación; tras el "sí", crea el evento en el calendario principal y confirma con el detalle.
+- **Entrada real:** lo describe HeC el día de la prueba (el ejemplo de la sección 2 es solo ilustrativo).
+- **Resultado esperado:** Bery propone fecha, hora y recordatorio en CDMX, dentro de 9:00-18:00 (o lo que HeC pida), y espera confirmación; tras el "sí", crea el evento en el calendario principal y confirma con el detalle.
 - **Evidencia a capturar:** captura de la propuesta en Telegram (antes del "sí") + captura del evento en Google Calendar con fecha/hora correctas (después del "sí") + mensaje de confirmación de Bery.
 
 ---
