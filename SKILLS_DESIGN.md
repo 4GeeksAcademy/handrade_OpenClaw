@@ -29,7 +29,7 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 **Qué sé ya por los archivos de configuración:**
 - IDENTITY.md: soy Bery, asistente con criterio, sin falsa energía.
 - SOUL.md: actúo primero cuando es seguro y reversible; formato Telegram en español, párrafos cortos.
-- AGENTS.md: regla 8 — no borro, muevo, renombro ni edito archivos o Google Docs sin confirmación. **Añadir una entrada al final** no toca nada existente y el dictado de HeC es la instrucción explícita, así que cuento con su autorización para actuar; regla 12 — no configuro nada nuevo; regla 14 — una pregunta a la vez.
+- AGENTS.md: regla 8 — no borro, muevo, renombro ni edito archivos o Google Docs sin confirmación. La excepción explícita de la regla 8 para la skill learning-journal respalda que mi dictado cuente como aprobación para AÑADIR una entrada al final del diario; editar o borrar entradas anteriores, o compartir el Doc, sigue requiriendo confirmación. Regla 12 — no configuro nada nuevo; regla 14 — una pregunta a la vez.
 - USER.md: fecha de hoy se interpreta en CDMX (UTC-6); idioma español; el diario es "Diario de aprendizaje - HeC".
 - TOOLS.md: el diario se crea/edita con Google Docs vía Zapier, cuenta Google principal conectada; no hay carpeta de Drive por defecto (Drive no está habilitado), el Doc se crea directamente.
 
@@ -67,7 +67,7 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 - El diario tiene un nombre y destino específicos definidos por HeC ("Diario de aprendizaje - HeC"), no un genérico "Notes".
 - La fecha se calcula en **CDMX (UTC-6)**, no en la zona del servidor.
 - La entrada y la confirmación van en **español mexicano, de tú, con 🐻**, tono corto (SOUL.md).
-- La regla de AGENTS.md se aplica con un matiz importante: **añadir** una entrada al diario es seguro, reversible y de bajo riesgo (no modifica nada existente), y el dictado de HeC es la instrucción explícita — por eso actúo primero (SOUL.md). En cambio, **editar o borrar entradas anteriores, o compartir el Doc, sí requiere confirmación** (regla 8). Si falta algo, hago **una** pregunta (regla 14).
+- Añadir una entrada al diario es seguro, reversible y de bajo riesgo (no modifica nada existente): por eso actúo primero (SOUL.md), y esto está respaldado por la **excepción de la regla 8** definida en AGENTS.md para la skill learning-journal. En cambio, **editar o borrar entradas anteriores, o compartir el Doc, sí requiere confirmación** (regla 8). Si falta algo, hago **una** pregunta (regla 14).
 
 ## 6. Servicios usados
 
@@ -82,7 +82,7 @@ Toma los puntos que HeC dicta por Telegram sobre lo que aprendió hoy y los agre
 - **HeC dicta algo ambiguo o incompleto:** pido **una** aclaración puntual (regla 14), no adivino (regla 15).
 - **HeC dicta datos sensibles:** se registran en el diario (es su doc privado), pero **nunca** se copian a archivos del repo, commits ni mensajes a terceros (regla 5).
 - **Falla la conexión con Zapier:** lo reporto tal cual (regla 16), no finjo que se guardó; propongo reintentar.
-- **Cuándo parar y preguntar:** si HeC pide editar o borrar entradas anteriores (regla 8: no edito/borro sin confirmación) o compartir el doc con alguien (regla 2: no comparto información personal; regla 8). Añadir una entrada nueva al final no requiere confirmación adicional: es reversible y el dictado es la instrucción explícita.
+- **Cuándo parar y preguntar:** si HeC pide editar o borrar entradas anteriores (regla 8: no edito/borro sin confirmación) o compartir el doc con alguien (regla 2: no comparto información personal; regla 8). Añadir una entrada nueva al final no requiere confirmación adicional: la excepción de la regla 8 (learning-journal) lo autoriza, al ser una acción reversible y de bajo riesgo.
 
 ## 8. Plan de prueba
 
