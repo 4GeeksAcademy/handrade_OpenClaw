@@ -1,7 +1,7 @@
 # EVIDENCIA.md — Pruebas de Skills (resultados reales)
 
 > Fecha de las pruebas: **2026-10-11**. Entradas reales de HeC por Telegram; resultados verificados por Bery con las respuestas reales de las APIs de Google Docs y Google Calendar.
-> Las capturas se alojan en `docs/evidencia/` (rutas relativas). **La carpeta está creada y vacía**: HeC agregará las imágenes; ninguna captura se ha subido todavía.
+> Las capturas se alojan en `docs/evidencia/` (rutas relativas) y fueron aportadas por HeC.
 
 ---
 
@@ -53,12 +53,12 @@
 
 Ambas entradas con fecha correcta en CDMX; nada anterior se modificó ni borró ✅
 
-**Capturas (pendientes, rutas relativas previstas):**
+**Capturas:**
 
-| Qué capturar | Ruta relativa |
+| Qué muestra | Ruta relativa |
 |---|---|
-| Final del Doc con la entrada nueva | `evidencia/prueba1-doc-final.png` |
-| Mensajes de confirmación de Bery en Telegram | `evidencia/confirmaciones-telegram.png` |
+| Chat de Telegram: dictado de HeC + confirmación de Bery (diario) | `evidencia/01-diario-telegram.png` |
+| Google Doc con las entradas del diario | `evidencia/02-diario-doc.png` |
 
 ---
 
@@ -95,12 +95,12 @@ Ambas entradas con fecha correcta en CDMX; nada anterior se modificó ni borró 
 
 **Cómo se refleja la configuración:** USER.md (zona CDMX y jornada 9:00-18:00 → "tarde" se resolvió como 16:00-18:00); AGENTS.md regla 9 (parar y preguntar antes de crear; se creó solo tras confirmación); SOUL.md (propuesta clara y una sola pregunta: "¿Lo creo?"); TOOLS.md (calendario principal de la cuenta conectada); tono de tú con 🐻 en el resumen de confirmación.
 
-**Capturas (pendientes, rutas relativas previstas):**
+**Capturas:**
 
-| Qué capturar | Ruta relativa |
+| Qué muestra | Ruta relativa |
 |---|---|
-| Propuesta en Telegram (antes del "sí") | `evidencia/prueba2-propuesta.png` |
-| Evento creado en Google Calendar | `evidencia/prueba2-evento-calendar.png` |
+| Chat de Telegram: propuesta del evento + confirmación de HeC | `evidencia/03-evento-propuesta.png` |
+| Evento creado en Google Calendar | `evidencia/04-evento-calendar.png` |
 
 ---
 
